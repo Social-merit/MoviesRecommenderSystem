@@ -1,3 +1,10 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #000000;
+
+}
 .movie {
 	color: #fff;
 	margin-left: auto;
@@ -23,11 +30,7 @@
 	color: #e4e0e0;
 }
 
-#content {
-	margin-top: 50px;
-	background-color: #181818;
-	font-family: 'Noto Sans JP', sans-serif;
-}
+
 
 #details {
 	margin-left: 50px;
@@ -252,17 +255,4 @@ h6 {
 
 .fail {
 	display: none;
-	color: white;
-}
-
-.flex-center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.grid-center {
-	display: grid;
-	place-items: center;
-	margin: auto;
 }

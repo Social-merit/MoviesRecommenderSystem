@@ -244,3 +244,6 @@ function get_movie_posters(arr,my_api_key){
   }
   return arr_poster_list;
 }
+
+
+// ================================ updated code DETAILS ===================================

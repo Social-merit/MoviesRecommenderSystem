@@ -22,14 +22,11 @@
 
 </head>
 
-<body id="content">
+<body>
   <div class="results">
-    <center>
-      <h2 id="name" class="text-uppercase">{{title}}</h2>
-    </center>
+    <div class="container mb-4">
+      <h2 class="text-uppercase px-4 " style="color:white;">{{title}}</h2>
   </div>
-  <br>
-
   <div id="mycontent">
     <div id="mcontent">
       <div class="poster-lg">
@@ -38,20 +35,19 @@
       <div class="poster-sm text-center">
         <img class="poster" style="border-radius: 40px;margin-bottom: 5%;" height="400" width="250" src={{poster}}>
       </div>
-      <div id="details">
-        <br />
-        <h6 id="title" style="color:white;">Main Title: &nbsp;{{title}}</h6>
-        <h6 id="overview" style="color:white;max-width: 85%">Overvire:
-          <br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{overview}}</h6>
-        <h6 id="vote_average" style="color:white;">RATING: &nbsp;{{vote_average}}/10 ({{vote_count}} votes)</h6>
-        <h6 id="genres" style="color:white;">GENRE: &nbsp;{{genres}}</h6>
-        <h6 id="date" style="color:white;">RELEASE DATE: &nbsp;{{release_date}}</h6>
-        <h6 id="runtime" style="color:white;">RUNTIME: &nbsp;{{runtime}}</h6>
-        <h6 id="status" style="color:white;">STATUS: &nbsp;{{status}}</h6>
+      <div id="details" style="color:white;">
+      
+        <h6 id="title">Main Title: &nbsp;{{title}}</h6>
+        <h6 id="overview" style="max-width: 85%">Overview: &nbsp;{{overview}}</h6>
+        <h6 id="vote_average">RATING: &nbsp;{{vote_average}}/10 ({{vote_count}} votes)</h6>
+        <h6 id="genres">GENRE: &nbsp;{{genres}}</h6>
+        <h6 id="date">RELEASE DATE: &nbsp;{{release_date}}</h6>
+        <h6 id="runtime">RUNTIME: &nbsp;{{runtime}}</h6>
+        <h6 id="status">STATUS: &nbsp;{{status}}</h6>
       </div>
     </div>
   </div>
-  <br />
+
 
   {% for name, details in cast_details.items() if not cast_details.hidden %}
   <div class="modal fade" id="{{details[0]}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3"
@@ -116,13 +112,11 @@
 
   {% if movie_cards|length > 1 %}
 
-  <div class="movie" style="color: #E8E8E8;">
-    <center>
+<div class="container-fluid">
+  <div class="movie text-center" style="color: #E8E8E8;">
       <h3>RECOMMENDED MOVIES FOR YOU</h3>
       <h5>(Click any of the movies to get recommendation)</h5>
-    </center>
   </div>
-
   <div class="movie-content">
     {% for poster, title in movie_cards.items() if not movie_cards.hidden %}
     <div class="card" style="width: 15rem;" title="{{title}}" onclick="recommendcard(this)">
@@ -138,19 +132,20 @@
     </div>
     {% endfor %}
   </div>
-
+</div>
   {% endif %}
 
 
-  <div class="grid-center">
+  <div class="container">
+    <div class="card">
     {% if reviews %}
-    <h2 style="color:white">USER REVIEWS</h2>
-    <div class="col-md-12" style="margin: 0 auto; margin-top:25px;">
-      <table class="table table-bordered" bordercolor="white" style="color:white">
-        <thead>
+    <h2 class="card-header text-center">Movie REVIEWS</h2>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead class="card-title text-center">
           <tr>
-            <th class="text-center" scope="col" style="width: 75%">Reviews</th>
-            <th class="text-center" scope="col">Status</th>
+            <th scope="col" style="width: 75%">Reviews</th>
+            <th scope="col">Status</th>
           </tr>
         </thead>
 
@@ -174,12 +169,13 @@
       </table>
     </div>
     {% else %}
-    <div style="color:white;">
+    <div class="container text-center">
       <h1 style="color:white"> This movie is not released yet. Stay tuned! </h1>
     </div>
     {% endif %}
   </div>
-
+  </div>
+  </div>
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
