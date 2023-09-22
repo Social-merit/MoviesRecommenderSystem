@@ -1,17 +1,65 @@
+### Content-Based Movie Recommendation System with Sentiment Analysis
 
-# **Building And Deploying Movie Recommender System**
+#### Overview:
 
-Content Based Recommender System recommends movies similar to the movie user likes and analyses the sentiments on the reviews given by the user for that movie.
+This advanced movie recommendation system leverages multiple technologies like Python, Flask, and various APIs to provide a nuanced recommendation. It gathers comprehensive information about a range of movies and uses both metadata and sentiment analysis of user reviews for personalized suggestions.
 
-The details of the movies(title, genre, runtime, rating, poster, etc) are fetched using an API by TMDB, https://www.themoviedb.org/documentation/api, and using the IMDB id of the movie in the API. 
+#### Technologies Used:
 
-We use *web scraping* to get the reviews given by the user in the IMDB site using beautifulsoup4 and performed sentiment analysis on those reviews.
+- **Python**: Core programming language for data processing and analytics.
+- **Flask**: Web framework for deploying the recommendation system.
+- **themoviedb.org API**: For fetching movie details like title, runtime, rating, and poster images.
+- **Wikipedia API**: For additional movie context and details.
+- **Scikit-learn**: For building the content-based recommendation model.
+- **Natural Language Toolkit (NLTK)**: For sentiment analysis on user reviews.
+- **Pandas**: For data manipulation and analysis.
+- **NumPy**: For numerical computations.
+- **JavaScript, HTML, CSS**: For frontend development.
+
+#### How it Works:
+
+1. **Data Extraction**:
+    - Movie details are fetched from themoviedb.org API.
+    - Additional information is pulled from Wikipedia using its API.
+
+2. **Feature Compilation**:
+    - Creates a 'feature vector' for each movie, including genres, director, main actors, etc.
+    - User reviews are fetched and sentiment analysis is performed.
+
+3. **Content-Based Filtering**:
+    - A cosine similarity matrix is generated using Scikit-learn.
+    - Sentiment scores from user reviews are integrated into this similarity matrix.
+
+4. **Recommendation**:
+    - The system finds the most similar movies based on the modified cosine similarity matrix.
+    - It returns a list of recommended movies sorted by their similarity scores.
+
+#### Additional Features:
+
+- **Auto-Suggest**: Suggests possible matches while typing a movie name.
+- **Interactive UI**: Displays each recommended movie with its poster, and more details upon clicking.
+
+#### Benefits:
+
+- **Personalized**: Sentiment analysis adds an emotional tone to the recommendations.
+- **Comprehensive**: Multi-source data gathering for well-rounded recommendations.
+- **Dynamic**: Constantly evolving recommendations based on new user reviews.
+### Screenshot
+
+![Image](/static/MoviesRecommendationSystem.gif)
+
+
 ## Running Flask Tests
 
 To run a Flask deployment tests, run the following command
 
 ```bash
-  python main.py
+python -m venv env  ==== to create venv
+
+.\venv\Scripts\Activate ==== to active env
+
+ Flask run  == python main.py
+
 ```
 
 ## Deployment
